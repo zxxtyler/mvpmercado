@@ -1,4 +1,4 @@
-package clientes;
+package angeloni.clientes;
 
 
 import java.util.ArrayList;

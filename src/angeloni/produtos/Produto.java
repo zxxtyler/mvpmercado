@@ -1,4 +1,4 @@
-package produtos;
+package angeloni.produtos;
 
 public class Produto {
     private int id;

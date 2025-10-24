@@ -1,6 +1,6 @@
-package clientes;
+package angeloni.clientes;
 
-public class Cliente {
+public abstract class Cliente {
     private int id;
     private String nome;
     private String telefone;

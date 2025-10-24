@@ -1,4 +1,4 @@
-package vendas;
+package angeloni.vendas;
 
 public class ItemVenda {
     private String nome;

@@ -1,4 +1,4 @@
-package produtos;
+package angeloni.produtos;
 
 import java.util.ArrayList;
 import java.util.List;
