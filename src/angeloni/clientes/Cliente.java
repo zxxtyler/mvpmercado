@@ -25,6 +25,7 @@ public abstract class Cliente {
         return telefone;
     }
 
+
     public Categoria getCategoria() {
         return categoria;
     }

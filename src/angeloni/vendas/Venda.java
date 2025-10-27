@@ -12,7 +12,7 @@ public class Venda {
 
     public Venda(Cliente cliente, List<ItemVenda> itens, double desconto) {
         this.cliente = cliente;
-        this.itens = new ArrayList<>();
+        this.itens = new ArrayList<>(itens);
         this.desconto = desconto;
     }
 

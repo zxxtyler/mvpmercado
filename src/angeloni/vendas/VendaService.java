@@ -14,22 +14,33 @@ public class VendaService {
 
     public void verificarDesconto() {
         for (Venda venda : vendas) {
-            
-        }
+            Categoria categoria = venda.getCliente().getCategoria();
+            double desconto = 0.0;
+
+            switch (categoria) {
+                case BRONZE -> {
+                    desconto = venda.ValorTotal() * 0.10;
+                }
+                case PRATA -> {
+                    desconto = venda.ValorTotal() * 0.15;
+                }
+                case OURO -> {
+                    desconto = venda.ValorTotal() * 0.20;
+                }
+            }
+            }
     }
 
     public void definirDesconto() {
         for (Venda venda : vendas) {
             if (venda.ValorTotal() >= 50 && venda.ValorTotal() <= 74) {
-                Categoria categoria = Categoria.BRONZE;
+                venda.getCliente().setCategoria(Categoria.BRONZE);
             } else if (venda.ValorTotal() >= 75 && venda.ValorTotal() <= 99) {
-                Categoria categoria = Categoria.PRATA;
+                venda.getCliente().setCategoria(Categoria.PRATA);
             } else if (venda.ValorTotal() >= 100) {
-                Categoria categoria = Categoria.OURO;
+                venda.getCliente().setCategoria(Categoria.OURO);
             }
         }
     }
-
-
 
 }
