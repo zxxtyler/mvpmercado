@@ -44,11 +44,10 @@ public abstract class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "Cliente - " +
                 "id: " + id +
                 ", Nome: '" + nome + '\'' +
                 ", Telefone: '" + telefone + '\'' +
-                ", Categoria: " + categoria +
-                '}';
+                ", Categoria: " + categoria;
     }
 }

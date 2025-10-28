@@ -28,17 +28,18 @@ public class VendaService {
                     desconto = venda.ValorTotal() * 0.20;
                 }
             }
+            venda.setDesconto(desconto);
             }
     }
 
     public void definirDesconto() {
         for (Venda venda : vendas) {
-            if (venda.ValorTotal() >= 50 && venda.ValorTotal() <= 74) {
-                venda.getCliente().setCategoria(Categoria.BRONZE);
-            } else if (venda.ValorTotal() >= 75 && venda.ValorTotal() <= 99) {
-                venda.getCliente().setCategoria(Categoria.PRATA);
-            } else if (venda.ValorTotal() >= 100) {
+            if (venda.ValorTotal() >= 100) {
                 venda.getCliente().setCategoria(Categoria.OURO);
+            } else if (venda.ValorTotal() >= 75) {
+                venda.getCliente().setCategoria(Categoria.PRATA);
+            } else if (venda.ValorTotal() >= 50) {
+                venda.getCliente().setCategoria(Categoria.BRONZE);
             }
         }
     }

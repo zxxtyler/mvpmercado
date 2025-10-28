@@ -62,11 +62,10 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Venda{" +
+        return "Venda - " +
                 "Cliente: " + cliente +
                 ", Itens: " + itens +
                 ", Desconto: " + desconto +
-                ", Valor Total: " + ValorTotal() +
-                '}';
+                ", Valor Total: " + ValorTotal();
     }
 }
