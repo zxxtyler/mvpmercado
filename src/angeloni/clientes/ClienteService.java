@@ -40,6 +40,17 @@ public class ClienteService {
             System.out.println(cliente);
         }
     }
+
+    public void editarCliente(int id, String novoTelefone, Categoria novaCategoria) {
+        Cliente cliente = consultarCliente(id);
+        if (cliente != null) {
+            cliente.setTelefone(novoTelefone);
+            cliente.setCategoria(novaCategoria);
+            System.out.println("Cliente atualizado: " + cliente);
+        } else {
+            System.out.println("Não foi possível editar o cliente.");
+        }
+    }
 }
 
 
