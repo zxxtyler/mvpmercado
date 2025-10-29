@@ -1,17 +1,25 @@
 package angeloni.clientes;
 
 
+
+
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 
 public class ClienteService {
     private List<Cliente> clientes = new ArrayList<>();
 
 
+
+
     public void cadastrarCliente(Cliente cliente) {
         clientes.add(cliente);
     }
+
+
 
 
     public Cliente consultarCliente(int id) {
@@ -25,6 +33,8 @@ public class ClienteService {
     }
 
 
+
+
     public void excluirCliente(int id) {
         Cliente cliente = consultarCliente(id);
         if (cliente != null) {
@@ -35,11 +45,14 @@ public class ClienteService {
     }
 
 
+
+
     public void listarClientes() {
         for (Cliente cliente : clientes) {
             System.out.println(cliente);
         }
     }
+
 
     public void editarCliente(int id, String novoTelefone, Categoria novaCategoria) {
         Cliente cliente = consultarCliente(id);
@@ -52,8 +65,3 @@ public class ClienteService {
         }
     }
 }
-
-
-
-
-

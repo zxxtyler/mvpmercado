@@ -1,14 +1,18 @@
 package angeloni.produtos;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ProdutoService {
     private List<Produto> produtos = new ArrayList<>();
 
+
     public void cadastrarProduto(Produto produto) {
         produtos.add(produto);
     }
+
 
     public Produto consultarProduto(int id) {
         for (Produto produto : produtos) {
@@ -20,6 +24,7 @@ public class ProdutoService {
         return null;
     }
 
+
     public void excluirProduto(int id) {
         Produto produto = consultarProduto(id);
         if (produto != null) {
@@ -29,11 +34,13 @@ public class ProdutoService {
         }
     }
 
+
     public void listarProdutos() {
         for (Produto produto : produtos) {
             System.out.println(produto);
         }
     }
+
 
     public void editarProduto(int id, double novoPreco) {
         Produto produto = consultarProduto(id);
@@ -44,6 +51,7 @@ public class ProdutoService {
             System.out.println("Não foi possível editar o produto.");
         }
     }
+
 
     public void entradaEstoque(int id, int quantidade) {
         Produto produto = consultarProduto(id);
@@ -59,6 +67,7 @@ public class ProdutoService {
             System.out.println("Não foi possível registrar a entrada.");
         }
     }
+
 
     public boolean saidaEstoque(int id, int quantidade) {
         Produto produto = consultarProduto(id);
@@ -83,6 +92,7 @@ public class ProdutoService {
         }
     }
 
+
     public void baixaEstoque(int id, int quantidade, String motivo) {
         Produto produto = consultarProduto(id);
         if (produto != null) {
@@ -103,4 +113,6 @@ public class ProdutoService {
         }
     }
 
+
 }
+
