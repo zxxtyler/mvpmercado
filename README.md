@@ -13,8 +13,4 @@ Já o módulo de vendas é responsável por registrar as transações realizadas
 
 Autores: Iara Maia e Tyler Rossi
 
---------------------------------------------------
-Licença:
-Este projeto está licenciado sob a *Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).*
-
-URL canônica: https://creativecommons.org/licenses/by-nc/4.0/
+-------------------------------------------------
