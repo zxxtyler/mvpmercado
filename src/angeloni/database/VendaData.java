@@ -25,7 +25,6 @@ public class VendaData {
 
             stmt.executeUpdate();
 
-            // Pegar o ID gerado automaticamente
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()) {
                 int idVenda = rs.getInt(1);
@@ -44,7 +43,7 @@ public class VendaData {
             e.printStackTrace();
         }
 
-        return -1; // Retorna -1 se deu erro
+        return -1; 
     }
 
     // Buscar venda por ID
