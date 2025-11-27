@@ -1,10 +1,10 @@
 package angeloni.produtos;
 
-import java.util.ArrayList;
+import angeloni.database.ProdutoData;
 import java.util.List;
 
 public class ProdutoService {
-    private List<Produto> produtos = new ArrayList<>();
+    private ProdutoData produtoData = new ProdutoData();
 
     public void cadastrarProduto(Produto produto) {
         if (produto == null) {
@@ -30,7 +30,7 @@ public class ProdutoService {
             return;
         }
 
-        produtos.add(produto);
+        produtoData.inserir(produto);
         System.out.println("Produto cadastrado com sucesso!");
     }
 
@@ -40,25 +40,26 @@ public class ProdutoService {
             return null;
         }
 
-        for (Produto produto : produtos) {
-            if (produto.getId() == id) {
-                return produto;
-            }
+        Produto produto = produtoData.buscarPorId(id);
+
+        if  (produto == null) {
+            System.out.println("Produto não encontrado.");
         }
 
-        System.out.println("Produto não encontrado.");
-        return null;
+        return produto;
     }
 
     public void excluirProduto(int id) {
         Produto produto = consultarProduto(id);
         if (produto != null) {
-            produtos.remove(produto);
+            produtoData.deletar(id);
             System.out.println("Produto removido com sucesso.");
         }
     }
 
     public void listarProdutos() {
+        List<Produto> produtos = produtoData.listarTodos();
+
         if (produtos.isEmpty()) {
             System.out.println("Nenhum produto cadastrado.");
             return;
@@ -79,6 +80,7 @@ public class ProdutoService {
         }
 
         produto.setPreco(novoPreco);
+        produtoData.atualizar(produto);
         System.out.println("Produto atualizado: " + produto);
     }
 
@@ -92,6 +94,7 @@ public class ProdutoService {
         }
 
         produto.setQtdEstoque(produto.getQtdEstoque() + quantidade);
+        produtoData.atualizar(produto);
         System.out.println("Entrada registrada. Estoque atual: " + produto.getQtdEstoque());
     }
 
@@ -110,6 +113,7 @@ public class ProdutoService {
         }
 
         produto.setQtdEstoque(produto.getQtdEstoque() - quantidade);
+        produtoData.atualizar(produto);
         System.out.println("Saída registrada. Estoque atual: " + produto.getQtdEstoque());
         return true;
     }
@@ -134,6 +138,7 @@ public class ProdutoService {
         }
 
         produto.setQtdEstoque(produto.getQtdEstoque() - quantidade);
+        produtoData.atualizar(produto);
         System.out.println("Baixa registrada. Motivo: " + motivo);
     }
 }

@@ -1,12 +1,18 @@
 package angeloni.vendas;
 
 import angeloni.clientes.Categoria;
-
+import angeloni.database.VendaData;
+import angeloni.database.ClienteData;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class VendaService {
     private List<Venda> vendas = new ArrayList<>();
+    private Map<Venda, Integer> vendasIds = new HashMap<>();
+    private VendaData vendaData = new VendaData();
+    private ClienteData clienteData = new ClienteData();
 
     public void registrarVenda(Venda venda) {
         if (venda == null) {
@@ -24,7 +30,7 @@ public class VendaService {
             return;
         }
 
-        vendas.add(venda);
+        int idVenda = vendaData.inserir(venda);
         System.out.println("Venda registrada com sucesso!");
     }
 
@@ -65,6 +71,7 @@ public class VendaService {
             } else {
                 venda.getCliente().setCategoria(Categoria.NENHUMA);
             }
+            clienteData.atualizar(venda.getCliente());
         }
     }
 }

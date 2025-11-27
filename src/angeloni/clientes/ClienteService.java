@@ -1,10 +1,10 @@
 package angeloni.clientes;
 
-import java.util.ArrayList;
+import angeloni.database.ClienteData;
 import java.util.List;
 
 public class ClienteService {
-    private List<Cliente> clientes = new ArrayList<>();
+    private ClienteData clienteData = new ClienteData();
 
     public void cadastrarCliente(Cliente cliente) {
         if (cliente == null) {
@@ -26,7 +26,7 @@ public class ClienteService {
             return;
         }
 
-        clientes.add(cliente);
+        clienteData.inserir(cliente);
         System.out.println("Cliente cadastrado com sucesso!");
     }
 
@@ -36,24 +36,26 @@ public class ClienteService {
             return null;
         }
 
-        for (Cliente cliente : clientes) {
-            if (cliente.getId() == id)
-                return cliente;
+        Cliente cliente = clienteData.buscarPorId(id);
+
+        if (cliente == null) {
+            System.out.println("Cliente não encontrado.");
         }
 
-        System.out.println("Cliente não encontrado.");
-        return null;
+        return cliente;
     }
 
     public void excluirCliente(int id) {
         Cliente cliente = consultarCliente(id);
         if (cliente != null) {
-            clientes.remove(cliente);
+            clienteData.deletar(id);
             System.out.println("Cliente removido com sucesso.");
         }
     }
 
     public void listarClientes() {
+        List<Cliente> clientes = clienteData.listarTodos();
+
         if (clientes.isEmpty()) {
             System.out.println("Nenhum cliente cadastrado.");
             return;
@@ -75,6 +77,7 @@ public class ClienteService {
 
         cliente.setTelefone(novoTelefone);
         cliente.setCategoria(novaCategoria);
+        clienteData.atualizar(cliente);
 
         System.out.println("Cliente atualizado: " + cliente);
     }
